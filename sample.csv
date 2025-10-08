@@ -1,0 +1,25 @@
+InvoiceNo,InvoiceDate,CustomerName,BaseAmount,GSTRate
+INV001,2024-01-15,ABC Electronics Pvt Ltd,50000,18
+INV002,2024-01-20,XYZ Trading Co,25000,12
+INV003,2024-01-25,Global Retail Store,15000,5
+INV004,2024-01-28,Tech Solutions Ltd,35000,18
+INV005,2024-02-05,Manufacturing Corp,80000,18
+INV006,2024-02-10,Food Products Inc,12000,5
+INV007,2024-02-15,Textile Industries,45000,12
+INV008,2024-02-22,Software Services,60000,18
+INV009,2024-03-08,Construction Co,120000,18
+INV010,2024-03-12,Pharmaceutical Ltd,30000,5
+INV011,2024-03-18,Auto Parts Dealer,75000,18
+INV012,2024-03-25,Book Publishers,18000,5
+INV013,2024-04-03,IT Consultancy,90000,18
+INV014,2024-04-08,Grocery Chain,22000,5
+INV015,2024-04-15,Furniture Store,55000,18
+INV016,2024-04-22,Agricultural Supplies,28000,5
+INV017,2024-05-05,Electronics Mart,65000,18
+INV018,2024-05-12,Clothing Brand,40000,12
+INV019,2024-05-18,Steel Industries,110000,18
+INV020,2024-05-25,Dairy Products,16000,5
+INV021,2024-06-02,Mobile Accessories,35000,18
+INV022,2024-06-10,Stationery Shop,8000,12
+INV023,2024-06-15,Chemical Company,85000,18
+INV024,2024-06-22,Organic Foods,14000,5

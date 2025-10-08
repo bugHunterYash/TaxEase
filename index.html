@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxEase Corporate - Professional GST/Tax Visualizer</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Professional Finance Background -->
+    <div class="finance-background">
+        <div class="bg-pattern"></div>
+        <div class="chart-overlay">
+            <svg class="chart-svg" viewBox="0 0 800 400">
+                <!-- Stock Chart Background -->
+                <defs>
+                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#1e40af;stop-opacity:0.1"/>
+                        <stop offset="50%" style="stop-color:#dc2626;stop-opacity:0.05"/>
+                        <stop offset="100%" style="stop-color:#1e40af;stop-opacity:0.1"/>
+                    </linearGradient>
+                </defs>
+                <path d="M0,300 Q100,250 200,200 T400,150 T600,100 T800,80" 
+                      stroke="url(#chartGradient)" 
+                      stroke-width="2" 
+                      fill="none" 
+                      opacity="0.3"/>
+                <path d="M0,320 Q150,280 300,240 T600,180 T800,120" 
+                      stroke="url(#chartGradient)" 
+                      stroke-width="1.5" 
+                      fill="none" 
+                      opacity="0.2"/>
+                
+                <!-- Grid Lines -->
+                <g stroke="#1e40af" stroke-width="0.5" opacity="0.1">
+                    <line x1="0" y1="100" x2="800" y2="100"/>
+                    <line x1="0" y1="200" x2="800" y2="200"/>
+                    <line x1="0" y1="300" x2="800" y2="300"/>
+                    <line x1="200" y1="0" x2="200" y2="400"/>
+                    <line x1="400" y1="0" x2="400" y2="400"/>
+                    <line x1="600" y1="0" x2="600" y2="400"/>
+                </g>
+                
+                <!-- Floating Financial Icons -->
+                <text x="100" y="120" font-family="FontAwesome" font-size="20" fill="#1e40af" opacity="0.1">₹</text>
+                <text x="300" y="180" font-family="FontAwesome" font-size="16" fill="#dc2626" opacity="0.1">%</text>
+                <text x="500" y="140" font-family="FontAwesome" font-size="18" fill="#1e40af" opacity="0.1">📊</text>
+                <text x="700" y="200" font-family="FontAwesome" font-size="14" fill="#dc2626" opacity="0.1">💼</text>
+            </svg>
+        </div>
+        <div class="floating-elements">
+            <div class="finance-element element-1">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="finance-element element-2">
+                <i class="fas fa-rupee-sign"></i>
+            </div>
+            <div class="finance-element element-3">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <div class="finance-element element-4">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="finance-element element-5">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="finance-element element-6">
+                <i class="fas fa-percentage"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top finance-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-aos="fade-right">
+                <div class="brand-logo">
+                    <i class="fas fa-calculator"></i>
+                    <span class="brand-text">TaxEase <span class="brand-accent">Corporate</span></span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('dashboard')" data-aos="fade-down" data-aos-delay="100">
+                            <i class="fas fa-tachometer-alt me-2"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('upload')" data-aos="fade-down" data-aos-delay="200">
+                            <i class="fas fa-cloud-upload-alt me-2"></i>
+                            <span class="nav-text">Upload CSV</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('trends')" data-aos="fade-down" data-aos-delay="300">
+                            <i class="fas fa-chart-line me-2"></i>
+                            <span class="nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('compliance')" data-aos="fade-down" data-aos-delay="400">
+                            <i class="fas fa-shield-alt me-2"></i>
+                            <span class="nav-text">Compliance</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-actions" data-aos="fade-left">
+                    <div class="language-selector">
+                        <i class="fas fa-language me-2"></i>
+                        <select id="languageSelect" onchange="switchLanguage()" class="finance-select">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container-fluid main-container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4" data-aos="fade-down">
+            <ol class="breadcrumb finance-breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fas fa-home me-1"></i>Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" id="currentPage">Dashboard</li>
+            </ol>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page-content active">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="text-center mb-5" data-aos="fade-up">
+                        <h1 class="display-3 fw-bold finance-title mb-3">
+                            <span id="welcomeTitle">Smart GST Visualizer</span>
+                        </h1>
+                        <p class="lead finance-subtitle" id="welcomeSubtitle">
+                            Professional Tax Management & Financial Analytics Platform
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State Message -->
+            <div id="emptyState" class="text-center py-5" data-aos="fade-up">
+                <div class="empty-state-card finance-card">
+                    <div class="empty-icon-wrapper">
+                        <div class="empty-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                    </div>
+                    <h3 class="mb-3 finance-text-primary" id="emptyStateTitle">No Data Available</h3>
+                    <p class="text-muted mb-4" id="emptyStateMessage">
+                        Upload your CSV file to unlock powerful analytics and insights
+                    </p>
+                    <button class="btn finance-btn-primary" onclick="showPage('upload')">
+                        <i class="fas fa-cloud-upload-alt me-2"></i>
+                        <span id="uploadNowBtn">Upload CSV Now</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards (Hidden initially) -->
+            <div id="statsSection" class="row mb-5" style="display: none;">
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-card finance-card blue-accent">
+                        <div class="stats-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stats-content">
+                            <div class="stats-value" id="totalInvoices">0</div>
+                            <div class="stats-label" id="totalInvoicesLabel">Total Invoices</div>
+                            <div class="stats-trend">
+                                <i class="fas fa-arrow-up"></i> +12%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-card finance-card red-accent">
+                        <div class="stats-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stats-content">
+                            <div class="stats-value" id="totalAmount">₹ 0</div>
+                            <div class="stats-label" id="totalAmountLabel">Total Revenue</div>
+                            <div class="stats-trend">
+                                <i class="fas fa-arrow-up"></i> +8.5%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-card finance-card blue-accent">
+                        <div class="stats-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <div class="stats-content">
+                            <div class="stats-value" id="totalGST">₹ 0</div>
+                            <div class="stats-label" id="totalGSTLabel">Total GST</div>
+                            <div class="stats-trend">
+                                <i class="fas fa-arrow-up"></i> +15%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stats-card finance-card red-accent">
+                        <div class="stats-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stats-content">
+                            <div class="stats-value" id="avgGSTRate">0%</div>
+                            <div class="stats-label" id="avgGSTRateLabel">Avg Tax Rate</div>
+                            <div class="stats-trend">
+                                <i class="fas fa-arrow-down"></i> -2.1%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions (Hidden initially) -->
+            <div id="quickActionsSection" class="row" style="display: none;">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                    <div class="finance-card">
+                        <div class="card-header finance-header">
+                            <h4 class="mb-0 d-flex align-items-center">
+                                <i class="fas fa-rocket me-3"></i>
+                                <span id="quickActionsTitle">Quick Actions</span>
+                            </h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-3">
+                                <div class="col-lg-4 col-md-6">
+                                    <button class="btn finance-btn-primary w-100 action-btn" onclick="showPage('upload')">
+                                        <i class="fas fa-cloud-upload-alt me-2"></i>
+                                        <span id="uploadBtn">Upload New Data</span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <button class="btn finance-btn-outline w-100 action-btn" onclick="showPage('trends')">
+                                        <i class="fas fa-chart-line me-2"></i>
+                                        <span id="trendsBtn">View Analytics</span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <button class="btn finance-btn-outline w-100 action-btn" onclick="showPage('compliance')">
+                                        <i class="fas fa-shield-alt me-2"></i>
+                                        <span id="complianceBtn">Check Compliance</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Page -->
+        <div id="upload" class="page-content" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10" data-aos="fade-up">
+                    <div class="finance-card">
+                        <div class="card-header finance-header">
+                            <h3 class="mb-0 d-flex align-items-center">
+                                <i class="fas fa-cloud-upload-alt me-3"></i>
+                                <span id="uploadTitle">Upload Invoice Data</span>
+                            </h3>
+                        </div>
+                        <div class="card-body p-5">
+                            <div class="upload-zone finance-upload" id="uploadZone">
+                                <div class="upload-content">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <h4 class="mb-3" id="uploadZoneTitle">Drag & Drop CSV File</h4>
+                                    <p class="text-muted mb-4" id="uploadZoneSubtitle">
+                                        Or click to browse and select file
+                                    </p>
+                                    <input type="file" id="csvFile" accept=".csv" style="display: none;">
+                                    <button class="btn finance-btn-primary" onclick="document.getElementById('csvFile').click()">
+                                        <i class="fas fa-folder-open me-2"></i>
+                                        <span id="selectFileBtn">Browse Files</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-5">
+                                <h5 id="sampleFormatTitle" class="finance-text-primary mb-3">
+                                    <i class="fas fa-info-circle me-2"></i>Sample CSV Format:
+                                </h5>
+                                <div class="finance-code-block">
+                                    <code class="finance-code">
+                                        InvoiceNo,InvoiceDate,CustomerName,BaseAmount,GSTRate<br>
+                                        INV001,2025-10-01,ABC Pvt Ltd,20000,18<br>
+                                        INV002,2025-10-02,XYZ Traders,15000,12<br>
+                                        INV003,2025-10-05,Global Corp,10000,5
+                                    </code>
+                                </div>
+                                
+                                <!-- Download Sample CSV Button -->
+                                <div class="text-center mt-4">
+                                    <button class="btn finance-btn-outline" onclick="downloadSampleCSV()">
+                                        <i class="fas fa-download me-2"></i>
+                                        <span id="downloadSampleBtn">Download Sample CSV</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="uploadStatus" class="mt-4" style="display: none;">
+                                <div class="alert finance-alert-success">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    <span id="uploadSuccessMsg">File uploaded successfully!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trends/Analytics Page -->
+        <div id="trends" class="page-content" style="display: none;">
+            <!-- Empty State for Trends -->
+            <div id="trendsEmptyState" class="text-center py-5" data-aos="fade-up">
+                <div class="empty-state-card finance-card">
+                    <div class="empty-icon-wrapper">
+                        <div class="empty-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <h3 class="mb-3 finance-text-primary" id="trendsEmptyTitle">No Analytics Data</h3>
+                    <p class="text-muted mb-4" id="trendsEmptyMessage">
+                        Upload CSV data to view comprehensive financial analytics and trends
+                    </p>
+                    <button class="btn finance-btn-primary" onclick="showPage('upload')">
+                        <i class="fas fa-cloud-upload-alt me-2"></i>
+                        <span id="uploadForTrendsBtn">Upload Data</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Trends Content (Hidden initially) -->
+            <div id="trendsContent" style="display: none;">
+                <div class="row mb-4">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="finance-card">
+                            <div class="card-header finance-header">
+                                <h3 class="mb-0 d-flex align-items-center">
+                                    <i class="fas fa-chart-line me-3"></i>
+                                    <span id="trendsTitle">Financial Analytics Dashboard</span>
+                                </h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <div class="chart-container finance-chart">
+                                    <canvas id="trendsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                        <div class="finance-card">
+                            <div class="card-header finance-header">
+                                <h4 class="mb-0 d-flex align-items-center">
+                                    <i class="fas fa-table me-3"></i>
+                                    <span id="monthlyDataTitle">Monthly Financial Summary</span>
+                                </h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table finance-table mb-0" id="trendsTable">
+                                        <thead>
+                                            <tr>
+                                                <th id="monthHeader">Month</th>
+                                                <th id="amountHeader">Revenue</th>
+                                                <th id="gstHeader">Tax Collected</th>
+                                                <th id="countHeader">Transactions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compliance Page -->
+        <div id="compliance" class="page-content" style="display: none;">
+            <!-- Empty State for Compliance -->
+            <div id="complianceEmptyState" class="text-center py-5" data-aos="fade-up">
+                <div class="empty-state-card finance-card">
+                    <div class="empty-icon-wrapper">
+                        <div class="empty-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <h3 class="mb-3 finance-text-primary" id="complianceEmptyTitle">No Compliance Data</h3>
+                    <p class="text-muted mb-4" id="complianceEmptyMessage">
+                        Upload CSV data to monitor compliance status and regulatory requirements
+                    </p>
+                    <button class="btn finance-btn-primary" onclick="showPage('upload')">
+                        <i class="fas fa-cloud-upload-alt me-2"></i>
+                        <span id="uploadForComplianceBtn">Upload Data</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Compliance Content (Hidden initially) -->
+            <div id="complianceContent" style="display: none;">
+                <div class="row">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="finance-card">
+                            <div class="card-header finance-header">
+                                <h3 class="mb-0 d-flex align-items-center">
+                                    <i class="fas fa-shield-alt me-3"></i>
+                                    <span id="complianceTitle">Compliance & Regulatory Status</span>
+                                </h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table finance-table mb-0" id="complianceTable">
+                                        <thead>
+                                            <tr>
+                                                <th id="invoiceHeader">Invoice ID</th>
+                                                <th id="dateHeader">Transaction Date</th>
+                                                <th id="customerHeader">Entity Name</th>
+                                                <th id="amountHeader2">Amount</th>
+                                                <th id="gstRateHeader">Tax Rate</th>
+                                                <th id="statusHeader">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
