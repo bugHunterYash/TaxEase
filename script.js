@@ -21,7 +21,7 @@ const translations = {
         trendsBtn: "View Analytics",
         complianceBtn: "Check Compliance",
         uploadTitle: "Upload Invoice Data",
-        uploadZoneTitle: "Drag & Drop CSV File",
+        uploadZoneTitle: "Drag & Drop CSV or PDF File",
         uploadZoneSubtitle: "Or click to browse and select file",
         selectFileBtn: "Browse Files",
         downloadSampleBtn: "Download Sample CSV",
@@ -54,13 +54,17 @@ const translations = {
         successUpload: "Successfully processed",
         records: "records",
         invalidFile: "Invalid File",
-        csvFileOnly: "Please select a CSV file.",
+        fileTypeNotSupported: "Please select a CSV or PDF file.",
         noDataFound: "No Data Found",
-        emptyCSV: "The CSV file appears to be empty or invalid.",
+        emptyCSV: "The uploaded file appears to be empty or invalid.",
         parseError: "Parse Error",
         formatError: "Error parsing CSV file. Please check the format.",
         fileError: "File Error",
-        readError: "Error reading the file. Please try again."
+        readError: "Error reading the file. Please try again.",
+        pdfFormatTitle: "PDF Format Note:",
+        pdfFormatNote: "For PDF files, please ensure the data is in a selectable table format with the same columns as the CSV sample. Scanned image-based PDFs are not supported.",
+        pdfParseError: "PDF Parse Error",
+        pdfFormatError: "Could not extract a valid table from the PDF. Please check the format."
     },
     hi: {
         welcomeTitle: "स्मार्ट जीएसटी विज़ुअलाइज़र",
@@ -77,7 +81,7 @@ const translations = {
         trendsBtn: "एनालिटिक्स देखें",
         complianceBtn: "अनुपालन जांचें",
         uploadTitle: "इनवॉइस डेटा अपलोड करें",
-        uploadZoneTitle: "CSV फ़ाइल ड्रैग और ड्रॉप करें",
+        uploadZoneTitle: "CSV या PDF फ़ाइल ड्रैग और ड्रॉप करें",
         uploadZoneSubtitle: "या ब्राउज़ करने और फ़ाइल चुनने के लिए क्लिक करें",
         selectFileBtn: "फ़ाइलें ब्राउज़ करें",
         downloadSampleBtn: "नमूना CSV डाउनलोड करें",
@@ -110,13 +114,77 @@ const translations = {
         successUpload: "सफलतापूर्वक प्रोसेस किया गया",
         records: "रिकॉर्ड्स",
         invalidFile: "अमान्य फ़ाइल",
-        csvFileOnly: "कृपया एक CSV फ़ाइल चुनें।",
+        fileTypeNotSupported: "कृपया एक CSV या PDF फ़ाइल चुनें।",
         noDataFound: "कोई डेटा नहीं मिला",
-        emptyCSV: "CSV फ़ाइल खाली या अमान्य लगती है।",
+        emptyCSV: "अपलोड की गई फ़ाइल खाली या अमान्य लगती है।",
         parseError: "पार्स त्रुटि",
         formatError: "CSV फ़ाइल पार्स करने में त्रुटि। कृपया प्रारूप जांचें।",
         fileError: "फ़ाइल त्रुटि",
-        readError: "फ़ाइल पढ़ने में त्रुटि। कृपया पुनः प्रयास करें।"
+        readError: "फ़ाइल पढ़ने में त्रुटि। कृपया पुनः प्रयास करें।",
+        pdfFormatTitle: "PDF प्रारूप नोट:",
+        pdfFormatNote: "PDF फ़ाइलों के लिए, कृपया सुनिश्चित करें कि डेटा CSV नमूने के समान कॉलम के साथ एक चयन योग्य तालिका प्रारूप में है। स्कैन की गई छवि-आधारित PDF समर्थित नहीं हैं।",
+        pdfParseError: "PDF पार्स त्रुटि",
+        pdfFormatError: "PDF से एक वैध तालिका नहीं निकाली जा सकी। कृपया प्रारूप जांचें।"
+    },
+    ta: {
+        welcomeTitle: "ஸ்மார்ட் ஜிஎஸ்டி விஷுவலைசர்",
+        welcomeSubtitle: "தொழில்முறை வரி மேலாண்மை மற்றும் நிதி பகுப்பாய்வு தளம்",
+        emptyStateTitle: "தரவு எதுவும் கிடைக்கவில்லை",
+        emptyStateMessage: "சக்திவாய்ந்த பகுப்பாய்வுகள் மற்றும் நுண்ணறிவுகளைத் திறக்க உங்கள் CSV கோப்பைப் பதிவேற்றவும்",
+        uploadNowBtn: "இப்போது CSV ஐ பதிவேற்றவும்",
+        totalInvoicesLabel: "மொத்த இன்வாய்ஸ்கள்",
+        totalAmountLabel: "மொத்த வருவாய்",
+        totalGSTLabel: "மொத்த ஜிஎஸ்டி",
+        avgGSTRateLabel: "சராசரி வரி விகிதம்",
+        quickActionsTitle: "விரைவு நடவடிக்கைகள்",
+        uploadBtn: "புதிய தரவைப் பதிவேற்றவும்",
+        trendsBtn: "பகுப்பாய்வுகளைக் காண்க",
+        complianceBtn: "இணக்கத்தைச் சரிபார்க்கவும்",
+        uploadTitle: "இன்வாய்ஸ் தரவைப் பதிவேற்றவும்",
+        uploadZoneTitle: "CSV அல்லது PDF கோப்பை இழுத்து விடவும்",
+        uploadZoneSubtitle: "அல்லது கோப்பைத் தேர்ந்தெடுக்க உலாவவும்",
+        selectFileBtn: "கோப்புகளை உலாவுக",
+        downloadSampleBtn: "மாதிரி CSV ஐ பதிவிறக்கவும்",
+        sampleFormatTitle: "மாதிரி CSV வடிவமைப்பு:",
+        uploadSuccessMsg: "கோப்பு வெற்றிகரமாக பதிவேற்றப்பட்டது!",
+        trendsTitle: "நிதி பகுப்பாய்வு டாஷ்போர்டு",
+        trendsEmptyTitle: "பகுப்பாய்வு தரவு இல்லை",
+        trendsEmptyMessage: "விரிவான நிதி பகுப்பாய்வுகள் மற்றும் போக்குகளைக் காண CSV தரவைப் பதிவேற்றவும்",
+        uploadForTrendsBtn: "தரவைப் பதிவேற்றவும்",
+        monthlyDataTitle: "மாதாந்திர நிதிச் சுருக்கம்",
+        monthHeader: "மாதம்",
+        amountHeader: "வருவாய்",
+        gstHeader: "சேகரிக்கப்பட்ட வரி",
+        countHeader: "பரிவர்த்தனைகள்",
+        complianceTitle: "இணக்கம் மற்றும் ஒழுங்குமுறை நிலை",
+        complianceEmptyTitle: "இணக்கத் தரவு இல்லை",
+        complianceEmptyMessage: "இணக்க நிலை மற்றும் ஒழுங்குமுறை தேவைகளைக் கண்காணிக்க CSV தரவைப் பதிவேற்றவும்",
+        uploadForComplianceBtn: "தரவைப் பதிவேற்றவும்",
+        invoiceHeader: "இன்வாய்ஸ் ஐடி",
+        dateHeader: "பரிவர்த்தனை தேதி",
+        customerHeader: "நிறுவனத்தின் பெயர்",
+        amountHeader2: "தொகை",
+        gstRateHeader: "வரி விகிதம்",
+        statusHeader: "நிலை",
+        onTime: "இணக்கமானது",
+        delayed: "இணக்கமற்றது",
+        processing: "செயலாக்கத்தில்...",
+        uploadingFile: "உங்கள் நிதித் தரவைப் பதிவேற்றி பகுப்பாய்வு செய்கிறது",
+        success: "வெற்றி!",
+        successUpload: "வெற்றிகரமாக செயல்படுத்தப்பட்டது",
+        records: "பதிவுகள்",
+        invalidFile: "தவறான கோப்பு",
+        fileTypeNotSupported: "தயவுசெய்து ஒரு CSV அல்லது PDF கோப்பைத் தேர்ந்தெடுக்கவும்.",
+        noDataFound: "தரவு எதுவும் கிடைக்கவில்லை",
+        emptyCSV: "பதிவேற்றப்பட்ட கோப்பு காலியாக அல்லது தவறானதாகத் தெரிகிறது.",
+        parseError: "பார்ஸ் பிழை",
+        formatError: "CSV கோப்பைப் பிரிப்பதில் பிழை. வடிவத்தைச் சரிபார்க்கவும்.",
+        fileError: "கோப்பு பிழை",
+        readError: "கோப்பைப் படிப்பதில் பிழை. மீண்டும் முயற்சிக்கவும்.",
+        pdfFormatTitle: "PDF வடிவமைப்பு குறிப்பு:",
+        pdfFormatNote: "PDF கோப்புகளுக்கு, CSV மாதிரியின் அதே நெடுவரிசைகளைக் கொண்ட தேர்ந்தெடுக்கக்கூடிய அட்டவணை வடிவத்தில் தரவு இருப்பதை உறுதிசெய்யவும். ஸ்கேன் செய்யப்பட்ட படம் அடிப்படையிலான PDFகள் ஆதரிக்கப்படவில்லை.",
+        pdfParseError: "PDF பார்ஸ் பிழை",
+        pdfFormatError: "PDF இலிருந்து சரியான அட்டவணையைப் பிரித்தெடுக்க முடியவில்லை. வடிவத்தைச் சரிபார்க்கவும்."
     }
 };
 
@@ -178,6 +246,7 @@ function setupEventListeners() {
         uploadZone.addEventListener('dragover', handleDragOver);
         uploadZone.addEventListener('dragleave', handleDragLeave);
         uploadZone.addEventListener('drop', handleDrop);
+        
         uploadZone.addEventListener('click', () => {
             const fileInput = document.getElementById('csvFile');
             if (fileInput) fileInput.click();
@@ -275,14 +344,19 @@ function updateLanguage() {
     });
 
     // Update navigation text with professional terms
-    const navTexts = currentLanguage === 'hi' ? 
-        ['डैशबोर्ड', 'CSV अपलोड', 'एनालिटिक्स', 'अनुपालन'] :
-        ['Dashboard', 'Upload CSV', 'Analytics', 'Compliance'];
+    const navTexts = {
+        en: ['Dashboard', 'Upload Data', 'Analytics', 'Compliance'],
+        hi: ['डैशबोर्ड', 'डेटा अपलोड', 'एनालिटिक्स', 'अनुपालन'],
+        ta: ['டாஷ்போர்டு', 'தரவு பதிவேற்றம்', 'பகுப்பாய்வு', 'இணக்கம்']
+    };
     
     document.querySelectorAll('.nav-text').forEach((el, index) => {
-        if (navTexts[index]) el.textContent = navTexts[index];
+        if (navTexts[currentLanguage] && navTexts[currentLanguage][index]) {
+            el.textContent = navTexts[currentLanguage][index];
+        }
     });
 }
+
 
 // Enhanced Page Navigation
 function showPage(pageId) {
@@ -316,22 +390,15 @@ function showPage(pageId) {
 
     // Update breadcrumb with professional terminology
     const pageTitles = {
-        dashboard: currentLanguage === 'hi' ? 'वित्तीय डैशबोर्ड' : 'Financial Dashboard',
-        upload: currentLanguage === 'hi' ? 'डेटा अपलोड' : 'Data Upload',
-        trends: currentLanguage === 'hi' ? 'वित्तीय एनालिटिक्स' : 'Financial Analytics',
-        compliance: currentLanguage === 'hi' ? 'अनुपालन निगरानी' : 'Compliance Monitoring'
+        dashboard: translations[currentLanguage].trendsTitle || 'Financial Dashboard',
+        upload: translations[currentLanguage].uploadTitle || 'Data Upload',
+        trends: translations[currentLanguage].trendsTitle || 'Financial Analytics',
+        compliance: translations[currentLanguage].complianceTitle || 'Compliance Monitoring'
     };
     
     const breadcrumbElement = document.getElementById('currentPage');
     if (breadcrumbElement) {
         breadcrumbElement.textContent = pageTitles[pageId] || pageId;
-    }
-
-    // Page-specific actions
-    if (pageId === 'trends' && invoiceData.length > 0) {
-        setTimeout(() => updateTrends(), 200);
-    } else if (pageId === 'compliance' && invoiceData.length > 0) {
-        setTimeout(() => updateCompliance(), 200);
     }
 
     // Reinitialize AOS for new content
@@ -375,21 +442,64 @@ function handleDrop(event) {
     }
 }
 
-// Enhanced File Processing
+// Helper function to handle parsed data and update UI
+function handleParsedData(parsedData) {
+    const texts = translations[currentLanguage];
+
+    if (parsedData.length === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: texts.noDataFound,
+            text: texts.emptyCSV,
+            background: 'rgba(255,255,255,0.98)',
+            customClass: { popup: 'finance-popup' }
+        });
+        return;
+    }
+
+    invoiceData = parsedData;
+
+    const uploadStatus = document.getElementById('uploadStatus');
+    if (uploadStatus) {
+        uploadStatus.style.display = 'block';
+    }
+
+    showDataState();
+    updateDashboard();
+    updateTrends(); // <<< FIX: Update chart data immediately
+    updateCompliance(); // <<< FIX: Update compliance data immediately
+
+    Swal.fire({
+        icon: 'success',
+        title: texts.success,
+        text: `${texts.successUpload} ${invoiceData.length} ${texts.records}.`,
+        showConfirmButton: false,
+        timer: 3000,
+        background: 'rgba(255,255,255,0.98)',
+        backdrop: `rgba(34, 197, 94, 0.1)`,
+        customClass: { popup: 'finance-popup' }
+    });
+
+    setTimeout(() => {
+        showPage('dashboard');
+    }, 3200);
+}
+
+
+// Enhanced File Processing for CSV and PDF
 function processFile(file) {
     const texts = translations[currentLanguage];
-    
+    const fileName = file.name.toLowerCase();
+
     // Validate file type
-    if (!file.name.toLowerCase().endsWith('.csv')) {
+    if (!fileName.endsWith('.csv') && !fileName.endsWith('.pdf')) {
         Swal.fire({
             icon: 'error',
             title: texts.invalidFile,
-            text: texts.csvFileOnly,
+            text: texts.fileTypeNotSupported,
             background: 'rgba(255,255,255,0.98)',
             backdrop: `rgba(220, 38, 38, 0.1)`,
-            customClass: {
-                popup: 'finance-popup'
-            }
+            customClass: { popup: 'finance-popup' }
         });
         return;
     }
@@ -401,95 +511,144 @@ function processFile(file) {
         allowOutsideClick: false,
         background: 'rgba(255,255,255,0.98)',
         backdrop: `rgba(30, 64, 175, 0.1)`,
-        customClass: {
-            popup: 'finance-popup'
-        },
-        didOpen: () => {
-            Swal.showLoading();
-        }
+        customClass: { popup: 'finance-popup' },
+        didOpen: () => { Swal.showLoading(); }
     });
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const parsedData = parseCSV(e.target.result);
-            
-            if (parsedData.length === 0) {
+    // --- CSV Processing Logic ---
+    if (fileName.endsWith('.csv')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const parsedData = parseCSV(e.target.result);
+                handleParsedData(parsedData);
+            } catch (error) {
+                console.error('CSV Parse error:', error);
                 Swal.fire({
-                    icon: 'warning',
-                    title: texts.noDataFound,
-                    text: texts.emptyCSV,
+                    icon: 'error',
+                    title: texts.parseError,
+                    text: texts.formatError,
                     background: 'rgba(255,255,255,0.98)',
-                    customClass: {
-                        popup: 'finance-popup'
-                    }
+                    customClass: { popup: 'finance-popup' }
                 });
-                return;
             }
-            
-            // Store data and update UI
-            invoiceData = parsedData;
-            
-            // Show success status
-            const uploadStatus = document.getElementById('uploadStatus');
-            if (uploadStatus) {
-                uploadStatus.style.display = 'block';
-            }
-            
-            // Switch to data state
-            showDataState();
-            
-            // Update dashboard
-            updateDashboard();
-            
-            // Show success notification
-            Swal.fire({
-                icon: 'success',
-                title: texts.success,
-                text: `${texts.successUpload} ${invoiceData.length} ${texts.records}.`,
-                showConfirmButton: false,
-                timer: 3000,
-                background: 'rgba(255,255,255,0.98)',
-                backdrop: `rgba(34, 197, 94, 0.1)`,
-                customClass: {
-                    popup: 'finance-popup'
-                }
-            });
-
-            // Auto-navigate to dashboard
-            setTimeout(() => {
-                showPage('dashboard');
-            }, 3200);
-
-        } catch (error) {
-            console.error('Parse error:', error);
+        };
+        reader.onerror = function() {
             Swal.fire({
                 icon: 'error',
-                title: texts.parseError,
-                text: texts.formatError,
+                title: texts.fileError,
+                text: texts.readError,
                 background: 'rgba(255,255,255,0.98)',
-                customClass: {
-                    popup: 'finance-popup'
-                }
+                customClass: { popup: 'finance-popup' }
             });
-        }
-    };
+        };
+        reader.readAsText(file);
+    
+    // --- PDF Processing Logic ---
+    } else if (fileName.endsWith('.pdf')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const typedarray = new Uint8Array(e.target.result);
+            const loadingTask = pdfjsLib.getDocument(typedarray);
 
-    reader.onerror = function() {
-        const texts = translations[currentLanguage];
-        Swal.fire({
-            icon: 'error',
-            title: texts.fileError,
-            text: texts.readError,
-            background: 'rgba(255,255,255,0.98)',
-            customClass: {
-                popup: 'finance-popup'
-            }
-        });
-    };
-
-    reader.readAsText(file);
+            loadingTask.promise.then(pdf => {
+                const pagePromises = [];
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    pagePromises.push(pdf.getPage(i).then(page => page.getTextContent()));
+                }
+                return Promise.all(pagePromises);
+            }).then(pagesTextContent => {
+                let fullText = '';
+                pagesTextContent.forEach(textContent => {
+                    if (textContent && textContent.items) {
+                        let lastY = -1;
+                        textContent.items.forEach(item => {
+                            if (lastY !== -1 && Math.abs(item.transform[5] - lastY) > 5) {
+                                fullText += '\n';
+                            }
+                            fullText += item.str + ' ';
+                            lastY = item.transform[5];
+                        });
+                        fullText += '\n';
+                    }
+                });
+                try {
+                    const parsedData = parsePDFText(fullText);
+                    handleParsedData(parsedData);
+                } catch (error) {
+                    console.error('PDF Parse error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: texts.pdfParseError,
+                        text: texts.pdfFormatError,
+                        background: 'rgba(255,255,255,0.98)',
+                        customClass: { popup: 'finance-popup' }
+                    });
+                }
+            }).catch(err => {
+                console.error('Error during PDF loading:', err);
+                Swal.fire({
+                    icon: 'error',
+                    title: texts.pdfParseError,
+                    text: 'The provided file could not be read as a PDF.',
+                    background: 'rgba(255,255,255,0.98)',
+                    customClass: { popup: 'finance-popup' }
+                });
+            });
+        };
+        reader.readAsArrayBuffer(file);
+    }
 }
+
+
+// PDF Text Parser
+function parsePDFText(text) {
+    const lines = text.trim().split('\n').filter(line => line.trim() !== '');
+    const data = [];
+
+    if (lines.length < 2) {
+        throw new Error('Invalid PDF format - not enough lines for a data table.');
+    }
+    
+    const headerIndex = lines.findIndex(line => line.toLowerCase().includes('invoiceno'));
+    const dataLines = headerIndex !== -1 ? lines.slice(headerIndex + 1) : lines.slice(1);
+
+    for (const line of dataLines) {
+        const values = line.trim().split(/\s{2,}/);
+
+        if (values.length >= 4) {
+            let row = {};
+            if (values.length > 5) {
+                const customerName = values.slice(2, values.length - 2).join(' ');
+                values.splice(2, values.length - 3, customerName);
+            }
+
+            if (values.length === 5) {
+                row = {
+                    InvoiceNo: values[0],
+                    InvoiceDate: values[1],
+                    CustomerName: values[2],
+                    BaseAmount: parseFloat(values[3].replace(/[^0-9.-]/g, '')),
+                    GSTRate: parseFloat(values[4].replace(/[^0-9.-]/g, ''))
+                };
+            } else {
+                continue;
+            }
+
+            if (row.InvoiceNo && !isNaN(row.BaseAmount) && !isNaN(row.GSTRate)) {
+                row.BaseAmount = Math.max(0, row.BaseAmount || 0);
+                row.GSTRate = Math.max(0, Math.min(100, row.GSTRate || 0));
+                data.push(row);
+            }
+        }
+    }
+
+    if (data.length === 0 && lines.length > 1) {
+        throw new Error('Could not extract any valid data rows from the PDF text.');
+    }
+    return data;
+}
+
 
 // Enhanced CSV Parser with Financial Validation
 function parseCSV(csvText) {
@@ -501,7 +660,6 @@ function parseCSV(csvText) {
     const headers = lines[0].split(',').map(h => h.trim());
     const data = [];
 
-    // Validate required headers for financial data
     const requiredHeaders = ['InvoiceNo', 'InvoiceDate', 'CustomerName', 'BaseAmount', 'GSTRate'];
     const missingHeaders = requiredHeaders.filter(h => !headers.includes(h));
     
@@ -509,7 +667,6 @@ function parseCSV(csvText) {
         throw new Error(`Missing required financial columns: ${missingHeaders.join(', ')}`);
     }
 
-    // Parse data with enhanced validation
     for (let i = 1; i < lines.length; i++) {
         const line = lines[i].trim();
         if (!line) continue;
@@ -522,7 +679,6 @@ function parseCSV(csvText) {
                 row[header] = values[index] || '';
             });
             
-            // Financial data validation
             if (row.InvoiceNo && row.InvoiceNo !== '' && 
                 !isNaN(parseFloat(row.BaseAmount)) && 
                 !isNaN(parseFloat(row.GSTRate))) {
@@ -533,7 +689,6 @@ function parseCSV(csvText) {
             }
         }
     }
-
     return data;
 }
 
@@ -544,7 +699,6 @@ function updateDashboard() {
         return;
     }
 
-    // Calculate financial metrics
     const totalInvoices = invoiceData.length;
     const totalAmount = invoiceData.reduce((sum, row) => sum + (row.BaseAmount || 0), 0);
     const totalGST = invoiceData.reduce((sum, row) => {
@@ -555,7 +709,6 @@ function updateDashboard() {
     const avgRate = totalInvoices > 0 ? 
         (invoiceData.reduce((sum, row) => sum + (row.GSTRate || 0), 0) / totalInvoices) : 0;
 
-    // Animate dashboard metrics with staggered timing
     const animations = [
         { elementId: 'totalInvoices', value: totalInvoices, delay: 300 },
         { elementId: 'totalAmount', value: totalAmount, prefix: '₹ ', delay: 500 },
@@ -574,8 +727,8 @@ function animateFinancialNumber(elementId, targetValue, prefix = '', suffix = ''
     if (!element) return;
     
     let current = 0;
-    const increment = targetValue / 80; // Smoother animation with more frames
-    const duration = 25; // 25ms intervals for 60fps feel
+    const increment = targetValue / 80;
+    const duration = 25;
     
     const timer = setInterval(() => {
         current += increment;
@@ -639,7 +792,6 @@ function calculateMonthlyFinancialData() {
         }
     });
 
-    // Calculate average rates
     Object.keys(monthlyData).forEach(month => {
         if (monthlyData[month].count > 0) {
             monthlyData[month].avgRate = monthlyData[month].totalGST / monthlyData[month].totalAmount * 100;
@@ -663,13 +815,16 @@ function updateFinancialChart(monthlyData) {
     const amounts = labels.map(month => monthlyData[month].totalAmount);
     const gstAmounts = labels.map(month => monthlyData[month].totalGST);
 
+    const revenueLabel = translations[currentLanguage]?.amountHeader || 'Revenue';
+    const taxLabel = translations[currentLanguage]?.gstHeader || 'Tax Collected';
+
     trendsChart = new Chart(chartContext, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [
                 {
-                    label: currentLanguage === 'hi' ? 'राजस्व' : 'Revenue',
+                    label: revenueLabel,
                     data: amounts,
                     borderColor: '#1e40af',
                     backgroundColor: 'rgba(30, 64, 175, 0.1)',
@@ -683,7 +838,7 @@ function updateFinancialChart(monthlyData) {
                     borderWidth: 3
                 },
                 {
-                    label: currentLanguage === 'hi' ? 'कर संग्रह' : 'Tax Collection',
+                    label: taxLabel,
                     data: gstAmounts,
                     borderColor: '#dc2626',
                     backgroundColor: 'rgba(220, 38, 38, 0.1)',
@@ -784,13 +939,12 @@ function updateFinancialTable(monthlyData) {
     if (!tbody) return;
     
     tbody.innerHTML = '';
-    const sortedMonths = Object.keys(monthlyData).sort().reverse(); // Show recent first
+    const sortedMonths = Object.keys(monthlyData).sort().reverse();
     
     sortedMonths.forEach((month, index) => {
         const data = monthlyData[month];
         const row = tbody.insertRow();
         
-        // Add professional styling and animation
         row.style.opacity = '0';
         row.style.transform = 'translateY(20px)';
         row.className = 'finance-table-row';
@@ -802,7 +956,6 @@ function updateFinancialTable(monthlyData) {
             <td><span class="badge bg-primary">${data.count}</span></td>
         `;
         
-        // Animate row appearance
         setTimeout(() => {
             row.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             row.style.opacity = '1';
@@ -839,7 +992,6 @@ function updateCompliance() {
 
             const tableRow = tbody.insertRow();
             
-            // Enhanced styling and animation
             tableRow.style.opacity = '0';
             tableRow.style.transform = 'translateY(20px)';
             tableRow.className = 'finance-table-row';
@@ -853,7 +1005,6 @@ function updateCompliance() {
                 <td><span class="status-badge ${statusClass}">${status}</span></td>
             `;
             
-            // Animate row appearance
             setTimeout(() => {
                 tableRow.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
                 tableRow.style.opacity = '1';
@@ -927,11 +1078,10 @@ function initKeyboardShortcuts() {
             }
         }
     });
-}
+} 
 
 // Tooltips
 function initTooltips() {
-    // Add tooltips to important elements
     const tooltipElements = document.querySelectorAll('[data-tooltip]');
     tooltipElements.forEach(element => {
         element.addEventListener('mouseenter', showTooltip);
